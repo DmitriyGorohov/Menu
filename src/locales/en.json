@@ -19,7 +19,17 @@
   "Success_title": "The order has been placed",
   "Success_sub_title": "Thank you for your request.",
   "You do not have any orders created yet": "You do not have any orders created yet",
-  "Canceled": "Canceled",
+  "Canceled": "Cancel order",
   "Back": "Back",
-  "Next": "Next"
+  "Next": "Next",
+  "Add": "Add",
+  "Weight": "Weight",
+  "Capacity": "Capacity",
+  "Material": "Material",
+  "Height dimension": "Height dimension",
+  "Length dimension": "Length dimension",
+  "Name": "Name",
+  "Phone Number": "Phone Number",
+  "Amount": "Amount",
+  "PlaceHolder": "Enter the text.."
 }

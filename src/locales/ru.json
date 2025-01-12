@@ -19,7 +19,17 @@
   "Success_title": "Заказ был размещен",
   "Success_sub_title": "Спасибо за ваш запрос.",
   "You do not have any orders created yet": "У вас еще нет созданных заказов",
-  "Canceled": "Отменен",
+  "Canceled": "Отменить заказ",
   "Back": "Назад",
-  "Next": "Далее"
+  "Next": "Далее",
+  "Add": "Добавить",
+  "Weight": "Вес",
+  "Capacity": "Вместимость",
+  "Material": "Материал",
+  "Height dimension": "Размер по высоте",
+  "Length dimension": "Размер по длине",
+  "Name": "Имя",
+  "Phone Number": "Номер телефона",
+  "Amount": "Сумма",
+  "PlaceHolder": "Введите текст.."
 }
