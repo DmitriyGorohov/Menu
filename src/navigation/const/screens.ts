@@ -1,0 +1,16 @@
+enum Screens {
+    MAIN_APP = 'MAIN_APP',
+    WEB_VIEW = 'WEB_VIEW_SCREEN',
+
+    MAIN_ENABLED_SCREEN = 'MAIN_ENABLED_SCREEN',
+
+    HISTORY = 'HISTORY',
+    GALLERY = 'GALLERY',
+    LANGUAGE = 'LANGUAGE',
+    ORDER = 'ORDER',
+    PLACE_ORDER = 'PLACE_ORDER',
+    MY_ORDER = 'MY_ORDER',
+    ORDER_SUCCESS = 'ORDER_SUCCESS',
+}
+
+export default Screens;
