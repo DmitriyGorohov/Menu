@@ -5,11 +5,12 @@ import Navigation from '../../navigation/navigation.ts'
 import useLocalize from '../../locales/useLocalize.ts'
 import { useSelector } from 'react-redux'
 import { shopSelector } from '../../store/shop/shopSlice.ts'
+import Colors from '../../styles/Colors.ts'
 
 const HistoryScreen = (): React.JSX.Element => {
   const { t, localize } = useLocalize()
   const { orderHistory } = useSelector(shopSelector)
-  console.log(orderHistory)
+
   const renderOrderItem = ({ item }: { item: (typeof orderHistory)[0] }) => {
     const formattedDate = new Date(item.date).toLocaleDateString()
 
@@ -50,6 +51,17 @@ const HistoryScreen = (): React.JSX.Element => {
         showsVerticalScrollIndicator={false}
         renderItem={renderOrderItem}
         keyExtractor={(item) => `${item.date}`}
+        ListEmptyComponent={
+          <Text
+            style={{
+              color: Colors.white,
+              fontSize: 16,
+              textAlign: 'center',
+            }}
+          >
+            {t(localize.You)}
+          </Text>
+        }
       />
     </SafeAreaView>
   )

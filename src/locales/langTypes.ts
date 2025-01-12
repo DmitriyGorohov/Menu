@@ -32,4 +32,5 @@ export interface ILang {
   'Phone Number': string
   Amount: string
   PlaceHolder: string
+  You: string
 }
