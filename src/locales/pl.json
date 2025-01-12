@@ -19,7 +19,17 @@
   "Success_title": "Zamówienie zostało złożone",
   "Success_sub_title": "Dziękujemy za twoje zgłoszenie.",
   "You do not have any orders created yet": "Nie masz jeszcze żadnych złożonych zamówień",
-  "Canceled": "Anulowane",
+  "Canceled": "Anuluj zamówienie",
   "Back": "Cofnij",
-  "Next": "Dalej"
+  "Next": "Dalej",
+  "Add": "Dodaj",
+  "Weight": "Waga",
+  "Capacity": "Pojemność",
+  "Material": "Materiał",
+  "Height dimension": "Wymiar wysokości",
+  "Length dimension": "Wymiar długości",
+  "Name": "Nazwa",
+  "Phone Number": "Numer telefonu",
+  "Amount": "Kwota",
+  "PlaceHolder": "Wprowadź tekst.."
 }
