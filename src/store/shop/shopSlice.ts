@@ -1,50 +1,63 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { RootState } from '../store.ts';
-import { EventTypeApi } from '../../utils/common.ts';
+import { products } from '../../utils/helpersLists.ts';
 
 export const shopSelector = (state: RootState): ShopState => state.shop;
 
-type Product = {
+export type Product = {
     id: number;
     title: string;
     image: ReturnType<typeof require>;
-    price: number;
+    dimensions: {
+        length: string;
+        height: string;
+    };
+    weight: string;
+    capacity: number;
+    material: string;
     favorites: boolean;
-    quantity?: number;
+    price: number;
 };
 
 export interface ShopState {
     totalCount: number;
-    itemBasket: { product: Product; quantity: number }[];
+    orderHistory: {
+        product: Product;
+        quantity: number;
+        date: string;
+        name?: string;
+        phone?: string;
+        status: boolean;
+    }[]; // Новое поле
+    itemBasket: {
+        product: Product;
+        quantity: number;
+    }[];
     itemFavorites: { product: Product; quantity: number }[];
     items: Product[];
-    events: EventTypeApi[];
-    enabledApi: boolean | null;
-    path: string;
 }
 
 const initialState: ShopState = {
     totalCount: 0,
     itemBasket: [],
+    orderHistory: [],
     itemFavorites: [],
-    items: [],
-    events: [],
-    enabledApi: null,
-    path: '',
+    items: products,
 };
 
 const shopSlice = createSlice({
     name: 'shop',
     initialState,
     reducers: {
-        setPath: (state, { payload }: PayloadAction<string>) => {
-            state.path = payload;
-        },
-        setEvents: (state, { payload }: PayloadAction<EventTypeApi[]>) => {
-            state.events = payload;
-        },
-        setEnabledApi: (state, { payload }: PayloadAction<boolean | null>) => {
-            state.enabledApi = payload;
+        saveOrderHistory: (
+            state,
+            action: PayloadAction<{ product: Product; quantity: number }[]>
+        ) => {
+            const newOrder = action.payload.map((order) => ({
+                ...order,
+                date: new Date().toISOString(), // Добавляем дату заказа
+            }));
+            state.orderHistory = [...state.orderHistory, ...newOrder];
         },
         resetProductToBasket: (state) => {
             state.itemBasket = [];
@@ -155,12 +168,10 @@ export const shopSliceReducer = shopSlice.reducer;
 export const {
     addProductToBasket,
     resetProductToBasket,
+    saveOrderHistory,
     toggleFavoriteProduct,
     removeProductFromFavorites,
     decreaseProductQuantity,
     removeProductFromBasket,
     visibleItems,
-    setEnabledApi,
-    setEvents,
-    setPath,
 } = shopSlice.actions;
